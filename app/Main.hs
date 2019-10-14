@@ -1,6 +1,7 @@
 module Main where
 
-import Lib
+import Network.Wai.Handler.Warp (run)
+import Server (webApp)
 
 main :: IO ()
-main = someFunc
+main = run 808 webApp
