@@ -1,12 +1,18 @@
 # Servant poc Api
 
 ## How to run it
-To run the service locally on docker the following steps are needed:
-
-#### Build a local docker image
-to create the image run the following command in the project folder (so that the docker file in here will be used and you don't have to specify it). I will try to push cache images for the dependencies, but there are chances that you have to build them for the first time if they are not available in my repo. If that's the case ... go get a coffee.
+To run the service locally on a docker container you can run the following command in the project's folder (so that the docker file in there will be used and you don't have to specify it). I will try to push cache images for the dependencies, but there are chances that you have to build them for the first time if they are not available in my repos. If that's the case ... go get a coffee.
 ```
-make publish-local
+make local-server-run
+```
+
+## Build and run a local docker image manually
+if you still want to build a docker image manually, follow the steps below
+
+#### Build
+run the following from the project's folder 
+```
+docker build -t servant-poc-api:latest .
 ```
 if that's successful, looking up for the images with
 ```
