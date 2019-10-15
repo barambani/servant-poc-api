@@ -25,4 +25,6 @@ webApp = serve api server
   where api = Proxy :: Proxy Api
 
 runningWebApp :: IO ()
-runningWebApp = environment >>= \Env{..} -> run (unMkPort port) webApp
+runningWebApp = do
+  Env{..} <- environment
+  run (unMkPort port) webApp
