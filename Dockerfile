@@ -21,7 +21,7 @@ RUN mv "$(stack path --local-install-root --system-ghc)/bin" /opt/build/bin
 
 
 ## Create Production Image
-FROM ubuntu:18.04
+FROM ubuntu:18.04 as service
 
 RUN mkdir -p /opt/servant-poc-api
 
