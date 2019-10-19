@@ -1,6 +1,9 @@
+# images
 IMAGE=barambani/servant-poc-api
 BUILDER_IMAGE=barambani/servant-poc-api-build
 DEPENDENCIES_IMAGE=barambani/servant-poc-api-deps
+
+# environment defaults
 PORT?=8080
 
 .PHONY: build

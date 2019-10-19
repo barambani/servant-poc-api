@@ -12,14 +12,14 @@ import Data.Text (Text)
 import GHC.Generics (Generic)
 import Data.Decimal
 
-newtype ShowToJson a = ShowToJson { unMkToJsonShow :: a }
+newtype ShowToJson a = ShowToJson a deriving Show
 instance Show a => ToJSON (ShowToJson a) where
-  toJSON = toJSON . show . unMkToJsonShow
+  toJSON = toJSON . show
 
-newtype UserId    = UserId { unMkUserId :: Int } deriving (Eq, Show, Generic, FromJSON)
-newtype ProductId = ProductId { unMkProductId :: Int } deriving (Eq, Show, Generic, FromJSON)
+newtype UserId         = UserId { unMkUserId :: Int } deriving (Eq, Show, Generic, FromJSON)
+newtype Currency       = Currency { unMkCurrency :: Text } deriving (Eq, Show, Generic, ToJSON)
+newtype ProductId      = ProductId { unMkProductId :: Int } deriving (Eq, Show, Generic, FromJSON)
 newtype DiscountReason = DiscountReason { unMkDiscountReason :: Text } deriving (Eq, Show, Generic, ToJSON)
-newtype Currency = Currency { unMkCurrency :: Text } deriving (Eq, Show, Generic, ToJSON)
 
 newtype DiscountAmount = DiscountAmount { unMkDiscountAmount :: Decimal }
   deriving (Eq, Show, Generic)
